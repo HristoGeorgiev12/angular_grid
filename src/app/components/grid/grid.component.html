@@ -1,0 +1,39 @@
+<p>
+  grid works!
+</p>
+
+<!-- <form (change)="filters"> -->
+  <label for="searchbar">Searchbar:</label> 
+  <input type="text" #searchbar (keyup) = "filterSearchBar(searchbar.value)">
+  <br>
+  <label for="rowlimiter">Row Limiter:</label> 
+  <select #rowLimiter (change)="filterRowLimiter(rowLimiter.value)">
+    <option value="0">All</option>
+    <option *ngFor="let i of rowOptions"  value="{{i}}">{{i}}</option>
+  </select>
+<!-- </form> -->
+<div>
+  <p>Listing</p>
+  <table>
+    <thead>
+      <tr>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of displayArray">
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.username}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination: <button *ngFor="">{{i}}</button> -->
+  Pagination: 
+  <button (click)="paginationAction(i + 1)"
+    *ngFor="let a of paginationButtons; let i =index"
+    >
+    {{i + 1}}
+  </button>
+</div>
